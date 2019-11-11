@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 public class Vocab {
 
-    public static final String PATTERN = "[0-9]| |<|>|--|:|,|\\.|\\/|\\n|\\?";
+    public static final String PATTERN = "[0-9]| |<|>|--|:|,|\\.|\\/|\\n|\\?|!|\"";
 
     public static void main(String[] args) {
 	new Vocab().test();
@@ -22,7 +22,7 @@ public class Vocab {
 
     public void test() {
 	System.out.println("Working Directory = " + System.getProperty("user.dir"));
-	String s = fileToString("resource/Blade Runner (1982).srt");
+	String s = fileToString("resource/bladerunner/Blade Runner (1982).srt");
 	s = doVocabStuff(s);
 	System.out.println(s);
     }
