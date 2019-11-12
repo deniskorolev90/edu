@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 public class Vocab {
 
-    public static final String PATTERN = "[0-9]| |<|>|--|:|,|\\.|\\/|\\n|\\?|!|\"";
+    public static final String PATTERN = "[0-9]| |<|>|--|;|:|,|\\.|\\/|\\n|\\?|!|\"";
 
     public static void main(String[] args) {
 	new Vocab().test();
@@ -22,7 +22,7 @@ public class Vocab {
 
     public void test() {
 	System.out.println("Working Directory = " + System.getProperty("user.dir"));
-	String s = fileToString("resource/bladerunner/Blade Runner (1982).srt");
+	String s = Utils.fileToString("resource/rockandmorty/401/Rick.and.Morty.S04E01.720p.WEBRip.x264-TBS.srt");
 	s = doVocabStuff(s);
 	System.out.println(s);
     }
@@ -69,14 +69,6 @@ public class Vocab {
 
 	return sb.toString();
     }
+    
 
-    public String fileToString(String path) {
-	StringBuilder contentBuilder = new StringBuilder();
-	try (Stream<String> stream = Files.lines(Paths.get(path), StandardCharsets.UTF_8)) {
-	    stream.forEach(s -> contentBuilder.append(s).append("\n"));
-	} catch (IOException e) {
-	    e.printStackTrace();
-	}
-	return contentBuilder.toString();
-    }
 }
