@@ -17,7 +17,7 @@ public class Vocab {
 
     public void test() {
 	System.out.println("Working Directory = " + System.getProperty("user.dir"));
-	String s = Utils.fileToString("resource/rockandmorty/401/Rick.and.Morty.S04E01.720p.WEBRip.x264-TBS.srt");
+	String s = Utils.fileToString("resource/news/words.txt");
 	s = doVocabStuff(s);
 	System.out.println(s);
     }
