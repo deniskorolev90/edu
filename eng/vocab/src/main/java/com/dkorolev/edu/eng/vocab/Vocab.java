@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class Vocab {
 
-    public static final String PATTERN = "[0-9]| |<|>|--|;|:|,|\\.|\\/|\\n|\\?|!|\"";
+    public static final String PATTERN = "[0-9]| |<|>|--|;|:|,|\\.|\\/|\\n|\\?|!|\"|\\(|\\)|&|#|•";
 
     public static void main(String[] args) {
 	new Vocab().test();
@@ -50,6 +50,7 @@ public class Vocab {
 
 	List<Word> words = new ArrayList<>(wordMap.keySet());
 	words.sort(new Comparator<Word>() {
+	    @Override
 	    public int compare(Word o1, Word o2) {
 		return Integer.compare(wordMap.get(o2), wordMap.get(o1));
 	    };
