@@ -21,9 +21,7 @@ import org.apache.commons.csv.CSVRecord;
 import com.dkorolev.edu.spring.spring01.domain.Question;
 
 public class QuestionDaoCsvImpl implements QuestionDao {
-//    @Value("${separator}")
     private String separator;
-//    @Value("${questionsCsv}")
     private String csvFilePath;
 
     public QuestionDaoCsvImpl(String separator, String csvFilePath) {
@@ -35,38 +33,14 @@ public class QuestionDaoCsvImpl implements QuestionDao {
     @Override
     public List<Question> loadQuestions() throws FileNotFoundException, IOException {
 
-	Path currentRelativePath = Paths.get("");
-	String s = currentRelativePath.toAbsolutePath().toString();
-	System.out.println("Current relative path is: " + s);
 	File file = new File(csvFilePath);
-//	System.out.println(readLineByLineJava8(csvFilePath));
 	return readCsv(file);
     }
 
-    private static String readLineByLineJava8(String filePath) {
-	StringBuilder contentBuilder = new StringBuilder();
-	try (Stream<String> stream = Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)) {
-	    stream.forEach(s -> contentBuilder.append(s).append("\n"));
-	} catch (IOException e) {
-	    e.printStackTrace();
-	}
-	return contentBuilder.toString();
-    }
-
     private List<Question> readCsv(File csvFile) throws FileNotFoundException, IOException {
-	CSVPrinter csvPrinter = new CSVPrinter(new FileWriter(new File("test321.csv")), CSVFormat.DEFAULT);
-	csvPrinter.printRecord("1", "8.3", "70", "10.3");
-	csvPrinter.printRecord("1", "8.3", "70", "10.3");
-	csvPrinter.flush();
-	csvPrinter.close();
-
 	Iterable<CSVRecord> csvParser = CSVFormat.DEFAULT.parse(new FileReader(csvFile));
 
 	List<Question> result = new ArrayList<>();
-
-//	for (CSVRecord record : csvParser) {
-//	    System.out.println();
-//	}
 
 	for (CSVRecord record : csvParser) {
 	    Question question = new Question();
