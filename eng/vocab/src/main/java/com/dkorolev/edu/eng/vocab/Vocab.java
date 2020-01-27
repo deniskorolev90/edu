@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class Vocab {
 
-    public static final String PATTERN = "[0-9]| |<|>|--|;|:|,|\\.|\\/|\\n|\\?|!|\"|\\(|\\)|&|#|•";
+    public static final String PATTERN = "[0-9]| |<|>|--|;|:|,|\\.|\\/|\\n|\\?|!|\"|\\(|\\)|&|#|•|\\[|\\]";
 
     public static void main(String[] args) {
 	new Vocab().test();
@@ -17,7 +17,7 @@ public class Vocab {
 
     public void test() {
 	System.out.println("Working Directory = " + System.getProperty("user.dir"));
-	String s = Utils.fileToString("resource/news/words.txt");
+	String s = Utils.fileToString("resource/unbre/unbreakable-yify-english.srt");
 	s = doVocabStuff(s);
 	System.out.println(s);
     }

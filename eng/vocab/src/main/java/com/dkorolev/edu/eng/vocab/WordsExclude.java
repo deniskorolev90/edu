@@ -6,11 +6,16 @@ import java.util.List;
 
 public class WordsExclude {
     public static void main(String[] args) {
-	String s1 = "resource/rockandmorty/401/words_all.txt";
+	String s1 = "resource/unbre/words.txt";
 	String s2 = "resource/bladerunner/wordsAll.txt";
 	new WordsExclude().execute(s1, s2);
     }
 
+    /**
+     * 
+     * @param pathWhere где удалить
+     * @param pathWhat  что удалить
+     */
     public void execute(String pathWhere, String pathWhat) {
 	String whereS = Utils.fileToString(pathWhere);
 	List<String> where = new ArrayList<>(Arrays.asList(whereS.split("\n")));
