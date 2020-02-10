@@ -1,12 +1,15 @@
 package com.dkorolev.edu.java.javatestprj01.loops;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class TestLoop {
     public static void main(String[] args) {
-	String mtrS = readString();
-	int[][] mtr = stringToIntArray(mtrS);
-	System.out.println(halfMtrWS(mtr));
+	int i = Integer.MAX_VALUE;
+	for (int j = 0; j < 10; j++) {
+	    System.out.println(i++);
+	}
     }
 
     private static String halfMtrWS(int[][] mtr) {
